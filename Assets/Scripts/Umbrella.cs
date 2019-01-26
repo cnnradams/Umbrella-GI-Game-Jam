@@ -10,8 +10,8 @@ public class Umbrella : MonoBehaviour
     public GameObject extend;
     private List<Extender> rightExtensions;
     private List<Extender> leftExtensions;
-    int currentRight = 0;
-    int currentLeft = 0;
+    int currentRight = 1;
+    int currentLeft = 1;
     float extensionWidth = 0;
     // Start is called before the first frame update
     void Start()
