@@ -59,10 +59,14 @@ MonoBehaviour:
 <<<<<<< HEAD
   minFriendsPerChunk: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   minFriendsPerChunk: 10
 >>>>>>> master
   maxFriendsPerChunk: 20
+=======
+  maxFriendsPerChunk: 5
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
   maxFriendsPerChunk: 5
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
