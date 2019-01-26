@@ -27,10 +27,14 @@ public class Friend : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         //gameManager = GameObject.FindGameObjectWithTag("GameManager");
 =======
         // gameManager = GameObject.FindGameObjectWithTag("GameManager");
 >>>>>>> master
+=======
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
@@ -57,10 +61,14 @@ public class Friend : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             //gameManager.GetComponent<GameManager>().friendDropped();
 =======
             // gameManager.GetComponent<GameManager>().friendDropped();
 >>>>>>> master
+=======
+            gameManager.GetComponent<GameManager>().friendDropped();
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
             gameManager.GetComponent<GameManager>().friendDropped();
 >>>>>>> parent of 2080973... Velocity Setting and Lighting

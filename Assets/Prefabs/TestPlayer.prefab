@@ -532,11 +532,14 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 8520371747131643337}
   - {fileID: 7323564774216145473}
 =======
   - {fileID: 7083721601055702168}
 >>>>>>> master
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
@@ -632,7 +635,10 @@ Rigidbody2D:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
@@ -654,7 +660,10 @@ MonoBehaviour:
   warmth: 100
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   umbrella: {fileID: 9156504245238153529}
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
@@ -687,7 +696,10 @@ BoxCollider2D:
   m_EdgeRadius: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
@@ -984,6 +996,7 @@ SpriteRenderer:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &5438278805353811550
 =======
 --- !u!1 &5011635082011328156
@@ -1124,6 +1137,8 @@ Transform:
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 >>>>>>> master
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======

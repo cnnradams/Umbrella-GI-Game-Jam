@@ -8,6 +8,7 @@ public class TestPlayer : MonoBehaviour
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -33,6 +34,13 @@ public class TestPlayer : MonoBehaviour
 
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
 =======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
+=======
+	public float moveSpeed = 7f;
+	public float jumpForce = 10f;
+    public float warmth = 100;
+
+
 >>>>>>> parent of 2080973... Velocity Setting and Lighting
     private Rigidbody2D rb;
     private List<GameObject> friend_list = new List<GameObject>();
