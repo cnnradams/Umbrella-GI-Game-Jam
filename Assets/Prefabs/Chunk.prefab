@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6545204937430076861}
-  - component: {fileID: 5484549132984335255}
+  - component: {fileID: 8215012783761721055}
   m_Layer: 0
   m_Name: Chunk
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5484549132984335255
+--- !u!114 &8215012783761721055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,8 +47,14 @@ MonoBehaviour:
     type: 3}
   friendPrefab: {fileID: 6089998440025051046, guid: 7bee80b8ae44c5b41a4af5305e427a70,
     type: 3}
-  heightFromBottom: 2
+  platformPrefab: {fileID: 4740713248280649738, guid: a316354f7a40b3c4aaacdce3dcb906a7,
+    type: 3}
+  platformGenChance: 0.6
+  minPlatformHeightDifference: 2
+  maxPlatformHeightDifference: 5
+  minPlatformSize: 5
   width: 0
   index: 0
+  isLeft: 0
   minFriendsPerChunk: 0
   maxFriendsPerChunk: 5

@@ -10,7 +10,7 @@ public class ChunkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        chunks.Add(0, GenerateChunk(0));
+        chunks.Add(0, GenerateChunk(0, false));
     }
     public Dictionary<int, Chunk> chunks = new Dictionary<int, Chunk>();
     int currentFurthestRightChunk = 0;
@@ -26,7 +26,7 @@ public class ChunkManager : MonoBehaviour
         if (furthestGeneratedRight - furthestCameraRight < generateOffset)
         {
             ++currentFurthestRightChunk;
-            chunks.Add(currentFurthestRightChunk, GenerateChunk(currentFurthestRightChunk));
+            chunks.Add(currentFurthestRightChunk, GenerateChunk(currentFurthestRightChunk, false));
         }
 
         // Left chunk genereation
@@ -35,14 +35,26 @@ public class ChunkManager : MonoBehaviour
         if (Mathf.Abs(furthestGeneratedLeft - furthestCameraLeft) < generateOffset)
         {
             --currentFurthestLeftChunk;
-            chunks.Add(currentFurthestLeftChunk, GenerateChunk(currentFurthestLeftChunk));
+            chunks.Add(currentFurthestLeftChunk, GenerateChunk(currentFurthestLeftChunk, true));
         }
     }
-    Chunk GenerateChunk(int index)
+    Chunk GenerateChunk(int index, bool isLeft)
     {
         Chunk c = Instantiate(chunkPrefab, new Vector3(index * chunkWidth, 0, 0), Quaternion.identity, transform) as Chunk;
         c.width = chunkWidth;
         c.index = index;
+        Chunk last;
+        chunks.TryGetValue(index + (isLeft ? 1 : -1), out last);
+        c.isLeft = isLeft;
+        if (last == null)
+        {
+            c.previousPlatforms = new List<Chunk.Platform>();
+        }
+        else
+        {
+            c.previousPlatforms = last.GetRightPlatformPoints(isLeft);
+        }
+
         return c;
     }
 }
