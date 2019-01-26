@@ -64,7 +64,6 @@ public class Chunk : MonoBehaviour
     }
     public void GeneratePlatforms(List<Platform> heights, bool isLeft)
     {
-        Debug.Log(heights.Count);
         foreach (Platform p in heights)
         {
             float w = Random.Range(minPlatformSize, 50);
@@ -90,7 +89,7 @@ public class Chunk : MonoBehaviour
     }
     void GenerateNewPlatforms()
     {
-        float curYHeight = groundPrefab.transform.position.y + groundPrefab.transform.localScale.y / 2.0f;
+        float curYHeight = groundPrefab.transform.position.y + groundPrefab.transform.localScale.y / 2.0f + 1;
         // keep making new platforms until luck runs out
         while (Random.Range(0.0f, 1.0f) < platformGenChance)
         {

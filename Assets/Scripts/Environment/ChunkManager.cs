@@ -7,6 +7,7 @@ public class ChunkManager : MonoBehaviour
     public int chunkWidth = 32;
     public Chunk chunkPrefab;
     int generateOffset = 20;
+    public Camera tCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +19,14 @@ public class ChunkManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!tCamera)
+        {
+            tCamera = GameObject.FindGameObjectWithTag("Player").transform.GetComponentInChildren<Camera>();
+        }
         // Right chunk generation
-        float cameraSize = Camera.main.orthographicSize;
+        float cameraSize = tCamera.orthographicSize;
 
-        float furthestCameraRight = Camera.main.transform.position.x + cameraSize;
+        float furthestCameraRight = tCamera.transform.position.x + cameraSize;
         float furthestGeneratedRight = (currentFurthestRightChunk * chunkWidth) + (chunkWidth / 2.0f);
         if (furthestGeneratedRight - furthestCameraRight < generateOffset)
         {
@@ -30,7 +35,7 @@ public class ChunkManager : MonoBehaviour
         }
 
         // Left chunk genereation
-        float furthestCameraLeft = Camera.main.transform.position.x - cameraSize;
+        float furthestCameraLeft = tCamera.transform.position.x - cameraSize;
         float furthestGeneratedLeft = (currentFurthestLeftChunk * chunkWidth) - (chunkWidth / 2.0f);
         if (Mathf.Abs(furthestGeneratedLeft - furthestCameraLeft) < generateOffset)
         {
