@@ -6,8 +6,8 @@ TagManager:
   tags:
   - Friend
   - Ground
-  - Home
   - Platform
+  - Home
   - Umbrella
   layers:
   - Default

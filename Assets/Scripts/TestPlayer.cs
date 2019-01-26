@@ -10,7 +10,7 @@ public class TestPlayer : MonoBehaviour
     public float jumpForce = 10f;
     public float warmth = 100;
 
-
+    public Umbrella umbrella;
     private Rigidbody2D rb;
     private List<GameObject> friend_list = new List<GameObject>();
 
@@ -91,6 +91,7 @@ public class TestPlayer : MonoBehaviour
 
             if (friend.cold)
             {
+                umbrella.Extend();
                 friend_list.Add(go);
                 friend.pickup();
             }
@@ -107,6 +108,7 @@ public class TestPlayer : MonoBehaviour
             if (friend_list.Count > 0)
             {
                 Friend friend = friend_list[0].GetComponent<Friend>();
+                umbrella.Shrink();
                 friend.drop();
                 friend_list.RemoveAt(0);
             }
