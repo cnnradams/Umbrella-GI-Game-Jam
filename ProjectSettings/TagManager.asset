@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Friend
   - Ground
+  - Home
+  - Platform
+  - Umbrella
   layers:
   - Default
   - TransparentFX
