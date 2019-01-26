@@ -11,19 +11,27 @@ public class Timer : MonoBehaviour
     private float timeLeft;
     public Text timer;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         timeLeft = StartingTimeLeft;
     }
+   
 
-    // Update is called once per frame
     void Update()
     {
         timeLeft -= Time.deltaTime;
 
+        // Here we can add time per Friend saved!
+        // Maybe something like:
+        // if (player saved){
+        //   timeLeft += 10f; }
+
+
         timer.text = timeLeft.ToString("F");
 
+        // When timer ends, here we make it so the player cannot move,
+        // and  game restarts on a button press (?)
         if (timeLeft <= 0.0f)
         {
             timer.text = "GAME OVER";
