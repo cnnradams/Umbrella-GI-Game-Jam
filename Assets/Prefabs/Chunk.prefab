@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 1070912686181230345, guid: 3b7823eed7b06574ebcfdecb16d96493,
     type: 3}
-  friendPrefab: {fileID: 2520958096246824089, guid: 50d5b15c9a5dfe24b972111a8c9137f2,
+  friendPrefab: {fileID: 6089998440025051046, guid: 7bee80b8ae44c5b41a4af5305e427a70,
     type: 3}
   heightFromBottom: 2
   width: 0
