@@ -6,8 +6,8 @@ public class TestPlayer : MonoBehaviour
 {
 
 
-	public float moveSpeed = 7f;
-	public float jumpForce = 10f;
+    public float moveSpeed = 7f;
+    public float jumpForce = 10f;
     public float warmth = 100;
 
 
@@ -34,12 +34,12 @@ public class TestPlayer : MonoBehaviour
         // Jump
         if (Input.GetButton("Jump") && canJump)
         {
-            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             canJump = false;
         }
 
         // Left and right
-       
+
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
     }
@@ -60,6 +60,7 @@ public class TestPlayer : MonoBehaviour
             if (dropping)
             {
                 Physics2D.IgnoreCollision(Other.collider, GetComponent<Collider2D>());
+                dropping = false;
                 StartCoroutine(Recollide(Other, GetComponent<Collider2D>(), 0.5f));
             }
         }
