@@ -6,6 +6,7 @@ public class TestPlayer : MonoBehaviour {
 
 	public float moveSpeed = 7f;
 	public float jumpForce = 10f;
+    public float warmth = 100;
 
     private Rigidbody2D rb;
     private List<GameObject> friend_list = new List<GameObject>();
@@ -24,7 +25,7 @@ public class TestPlayer : MonoBehaviour {
         float move = Input.GetAxis("Horizontal");
 
         // Jump
-        if (Input.GetButtonDown("Jump") && canJump)
+        if (Input.GetButton("Jump") && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x,jumpForce);
             canJump = false;

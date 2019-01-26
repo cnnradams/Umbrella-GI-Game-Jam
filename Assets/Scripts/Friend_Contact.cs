@@ -22,7 +22,7 @@ public class Friend_Contact : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Home") && friend.cold)
         {
-            //Debug.Log("Entered Contact");
+            Debug.Log("Entered Contact");
             friend.atHome = true;
             friend.homePosition = collision.gameObject.transform.position;
         }

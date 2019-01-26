@@ -12,6 +12,7 @@ public class Friend : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private GameObject player;
+    private GameObject gameManager;
  
     private float offsetPosition;
     private float offsetExit = 1f;
@@ -23,6 +24,7 @@ public class Friend : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         player = GameObject.FindGameObjectWithTag("Player");
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame
@@ -32,14 +34,18 @@ public class Friend : MonoBehaviour
 
         if (atHome)
         {
+            /*
             Debug.Log("Entered atHome");
            Vector3 offset = homePosition - gameObject.transform.position;
            rb.velocity = new Vector2(offset.x, offset.y) * returnSpeed;
            
             if(Mathf.Abs(offset.x) < 0.1f)
             {
+            */
+            gameManager.GetComponent<GameManager>().friendDropped();
+            Debug.Log("Entered Home");
                 Destroy(gameObject);
-            }
+           
         }
         else if (!cold)
         {
