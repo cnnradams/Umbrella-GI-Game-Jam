@@ -8,7 +8,7 @@ public class TestPlayer : MonoBehaviour {
 	public float jumpHeight;
 
     private Rigidbody2D rb;
-    private List<Friend> friend_list = new List<Friend>();
+    private List<GameObject> friend_list = new List<GameObject>();
 
     private Animator anim;
 
@@ -23,13 +23,15 @@ public class TestPlayer : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponent<Friend>())
+        if (collision.gameObject.CompareTag("Friend"))
         {
-            Debug.Log("Collided With Friend!");
-            Friend friend = collision.gameObject.GetComponent<Friend>();
+            //Debug.Log("Collided With Friend!");
+            GameObject go = collision.gameObject.transform.parent.gameObject;
+            Friend friend = go.GetComponent<Friend>();
+            
             if (friend.cold)
             {
-                friend_list.Add(friend);
+                friend_list.Add(go);
                 friend.pickup();
             }
             
@@ -48,9 +50,11 @@ public class TestPlayer : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
-            if(friend_list.Count > 0)
-            friend_list[0].drop();
+            if (friend_list.Count > 0) {
+                Friend friend = friend_list[0].GetComponent<Friend>();
+                friend.drop();
             friend_list.RemoveAt(0);
+            }
         }
 
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
