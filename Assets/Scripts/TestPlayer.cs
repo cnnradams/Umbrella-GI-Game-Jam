@@ -6,12 +6,17 @@ public class TestPlayer : MonoBehaviour
 {
 
 
+<<<<<<< HEAD
 
 
 
+=======
+	public float moveSpeed = 7f;
+	public float jumpForce = 10f;
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
     public float warmth = 100;
-    public float drop_distance = 0.5f;
 
+<<<<<<< HEAD
 
     public float speed_scale = 8f;
     public float speed_power = 1f;
@@ -23,19 +28,22 @@ public class TestPlayer : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
 
+=======
+
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
     private Rigidbody2D rb;
     private List<GameObject> friend_list = new List<GameObject>();
-    private CircleCollider2D boxColl;
+
     private Animator anim;
 
     private bool canJump;
     private bool dropping;
-    private float dropTimer = 0.2f;
+    private BoxCollider2D thisCollider;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        boxColl = gameObject.GetComponent<CircleCollider2D>();
+        thisCollider = GetComponent<BoxCollider2D>();
     }
 
     void FixedUpdate()
@@ -56,33 +64,38 @@ public class TestPlayer : MonoBehaviour
 
     }
 
-
+    void OnCollisionEnter2D(Collision2D Other)
+    {
+        Debug.Log(Other.collider.gameObject.tag);
+        if (Other.collider.gameObject.tag == "Ground" || Other.collider.gameObject.tag == "Platform")
+        {
+            canJump = true;
+        }
+    }
 
     void OnCollisionStay2D(Collision2D Other)
     {
-        //Debug.Log(Other.collider.gameObject.tag);
-        if (Other.collider.gameObject.tag == "Ground" || Other.collider.gameObject.tag == "Platform")
+        if (Other.collider.gameObject.tag == "Platform")
         {
-            if (dropping && Other.collider.gameObject.tag == "Platform")
+            if (dropping)
             {
-                gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - drop_distance );
-                dropping = false;
+                Physics2D.IgnoreCollision(Other.collider, GetComponent<Collider2D>());
+                StartCoroutine(Recollide(Other, GetComponent<Collider2D>(), 0.5f));
             }
-
-            canJump = true;
         }
+    }
+    IEnumerator Recollide(Collision2D Other, Collider2D me, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        Physics2D.IgnoreCollision(Other.collider, me, false);
+        dropping = false;
+        // Now do your thing here
     }
     void OnCollisionExit2D(Collision2D Other)
     {
         if (Other.collider.gameObject.tag == "Ground" || Other.collider.gameObject.tag == "Platform")
         {
             canJump = false;
-            if(Other.collider.gameObject.tag == "Platform")
-            {
-                Debug.Log("ENTERED TRIGGER");
-                boxColl.isTrigger = false;
-                dropping = false;
-            }
         }
     }
 
@@ -107,8 +120,7 @@ public class TestPlayer : MonoBehaviour
 
     void Update()
     {
-        moveSpeed = speed_scale * Mathf.Exp(-speed_power * friend_list.Count) + min_speed;
-        jumpForce = jump_scale * Mathf.Exp(-jump_power * friend_list.Count) + min_jump;
+
         // Drop Friends
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -123,13 +135,6 @@ public class TestPlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             dropping = true;
-        }
-        if (dropping) dropTimer -= Time.deltaTime;
-
-        if (dropTimer < 0)
-        {
-            dropping = false;
-            dropTimer = 0.2f;
         }
 
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));

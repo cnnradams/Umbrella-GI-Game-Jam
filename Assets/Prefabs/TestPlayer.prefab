@@ -503,9 +503,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4003244742233526018}
   - component: {fileID: 4003244742233526019}
-  - component: {fileID: 4003244742233526017}
   - component: {fileID: 4003244742233526028}
   - component: {fileID: 4003244742233526029}
+  - component: {fileID: 4003244742233526017}
+  - component: {fileID: 4003244742233526023}
   - component: {fileID: 4003244742233526016}
   - component: {fileID: 7321481094791436015}
   m_Layer: 10
@@ -529,11 +530,14 @@ Transform:
   - {fileID: 4003244742505694455}
   - {fileID: 6513267627779233851}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 8520371747131643337}
   - {fileID: 7323564774216145473}
 =======
   - {fileID: 7083721601055702168}
 >>>>>>> master
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -554,7 +558,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -585,28 +589,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4003244742233526017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4003244742233526030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfcc16ddd267074b91c6bce228a6500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  warmth: 100
-  drop_distance: 0.5
-  speed_scale: 12
-  speed_power: 0.3
-  min_speed: 3
-  jump_scale: 20
-  jump_power: 0.05
-  min_jump: 5
-  moveSpeed: 0
-  jumpForce: 0
 --- !u!58 &4003244742233526028
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -645,7 +627,10 @@ Rigidbody2D:
   m_CollisionDetection: 0
   m_Constraints: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 --- !u!114 &4003244742233526017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,7 +646,10 @@ MonoBehaviour:
   moveSpeed: 7
   jumpForce: 25
   warmth: 100
+<<<<<<< HEAD
   umbrella: {fileID: 9156504245238153529}
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 --- !u!61 &4003244742233526023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -688,7 +676,10 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 --- !u!95 &4003244742233526016
 Animator:
   serializedVersion: 3
@@ -979,6 +970,7 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &5438278805353811550
 =======
 --- !u!1 &5011635082011328156
@@ -1119,6 +1111,8 @@ Transform:
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 >>>>>>> master
+=======
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
 --- !u!1 &8447417174373928427
 GameObject:
   m_ObjectHideFlags: 0

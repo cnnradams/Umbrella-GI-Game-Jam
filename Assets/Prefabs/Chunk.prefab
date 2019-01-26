@@ -58,7 +58,11 @@ MonoBehaviour:
   isLeft: 0
 <<<<<<< HEAD
   minFriendsPerChunk: 0
+<<<<<<< HEAD
 =======
   minFriendsPerChunk: 10
 >>>>>>> master
   maxFriendsPerChunk: 20
+=======
+  maxFriendsPerChunk: 5
+>>>>>>> parent of 2080973... Velocity Setting and Lighting

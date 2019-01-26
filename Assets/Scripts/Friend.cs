@@ -25,10 +25,14 @@ public class Friend : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
 <<<<<<< HEAD
+<<<<<<< HEAD
         //gameManager = GameObject.FindGameObjectWithTag("GameManager");
 =======
         // gameManager = GameObject.FindGameObjectWithTag("GameManager");
 >>>>>>> master
+=======
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
     }
 
     // Update is called once per frame
@@ -47,10 +51,14 @@ public class Friend : MonoBehaviour
             {
             */
 <<<<<<< HEAD
+<<<<<<< HEAD
             //gameManager.GetComponent<GameManager>().friendDropped();
 =======
             // gameManager.GetComponent<GameManager>().friendDropped();
 >>>>>>> master
+=======
+            gameManager.GetComponent<GameManager>().friendDropped();
+>>>>>>> parent of 2080973... Velocity Setting and Lighting
             Debug.Log("Entered Home");
             Destroy(gameObject);
 
