@@ -5,8 +5,11 @@ using UnityEngine;
 public class TestPlayer : MonoBehaviour
 {
 
-    public float moveSpeed = 7;
-    public float jumpForce = 300;
+
+	public float moveSpeed = 7f;
+	public float jumpForce = 10f;
+    public float warmth = 100;
+
 
     private Rigidbody2D rb;
     private List<GameObject> friend_list = new List<GameObject>();
@@ -29,12 +32,14 @@ public class TestPlayer : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
 
         // Jump
-        if (Input.GetButtonDown("Jump") && canJump)
+        if (Input.GetButton("Jump") && canJump)
         {
-            rb.AddForce(new Vector2(0, jumpForce));
+            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
+            canJump = false;
         }
 
         // Left and right
+       
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
     }
@@ -47,6 +52,7 @@ public class TestPlayer : MonoBehaviour
             canJump = true;
         }
     }
+
     void OnCollisionStay2D(Collision2D Other)
     {
         if (Other.collider.gameObject.tag == "Platform")
