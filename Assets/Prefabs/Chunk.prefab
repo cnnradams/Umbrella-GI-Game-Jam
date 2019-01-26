@@ -56,5 +56,9 @@ MonoBehaviour:
   width: 0
   index: 0
   isLeft: 0
+<<<<<<< HEAD
   minFriendsPerChunk: 0
+=======
+  minFriendsPerChunk: 10
+>>>>>>> master
   maxFriendsPerChunk: 20

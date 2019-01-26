@@ -8,8 +8,10 @@ public class TestPlayer : MonoBehaviour
 
 
 
+
     public float warmth = 100;
     public float drop_distance = 0.5f;
+
 
     public float speed_scale = 8f;
     public float speed_power = 1f;
@@ -20,6 +22,7 @@ public class TestPlayer : MonoBehaviour
 
     public float moveSpeed;
     public float jumpForce;
+
     private Rigidbody2D rb;
     private List<GameObject> friend_list = new List<GameObject>();
     private CircleCollider2D boxColl;
@@ -43,12 +46,12 @@ public class TestPlayer : MonoBehaviour
         // Jump
         if (Input.GetButton("Jump") && canJump)
         {
-            rb.velocity = new Vector2(rb.velocity.x,jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             canJump = false;
         }
 
         // Left and right
-       
+
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
     }
@@ -94,6 +97,7 @@ public class TestPlayer : MonoBehaviour
 
             if (friend.cold)
             {
+                umbrella.Extend();
                 friend_list.Add(go);
                 friend.pickup();
             }
@@ -111,6 +115,7 @@ public class TestPlayer : MonoBehaviour
             if (friend_list.Count > 0)
             {
                 Friend friend = friend_list[0].GetComponent<Friend>();
+                umbrella.Shrink();
                 friend.drop();
                 friend_list.RemoveAt(0);
             }
