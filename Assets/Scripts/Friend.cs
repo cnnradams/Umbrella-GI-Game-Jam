@@ -24,7 +24,7 @@ public class Friend : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         player = GameObject.FindGameObjectWithTag("Player");
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        //gameManager = GameObject.FindGameObjectWithTag("GameManager");
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class Friend : MonoBehaviour
             if(Mathf.Abs(offset.x) < 0.1f)
             {
             */
-            gameManager.GetComponent<GameManager>().friendDropped();
+            //gameManager.GetComponent<GameManager>().friendDropped();
             Debug.Log("Entered Home");
                 Destroy(gameObject);
            
