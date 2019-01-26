@@ -5,11 +5,14 @@ using UnityEngine;
 public class Friend : MonoBehaviour
 {
     public bool cold = true;
+    public float returnSpeed = 1f;
+    public bool atHome = false;
+    public Vector3 homePosition;
 
     private Rigidbody2D rb;
     private Animator anim;
     private GameObject player;
-
+ 
     private float offsetPosition;
     private float offsetExit = 1f;
     // Start is called before the first frame update
@@ -26,7 +29,19 @@ public class Friend : MonoBehaviour
     void Update()
     {
         anim.SetBool("Cold", cold);
-        if (!cold)
+
+        if (atHome)
+        {
+            Debug.Log("Entered atHome");
+           Vector3 offset = homePosition - gameObject.transform.position;
+           rb.velocity = new Vector2(offset.x, offset.y) * returnSpeed;
+           
+            if(Mathf.Abs(offset.x) < 0.1f)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (!cold)
         {
             followPlayer();
         }
@@ -37,7 +52,7 @@ public class Friend : MonoBehaviour
         cold = false;
         //Change Sprite
         //Start Following Player
-        offsetPosition = Random.RandomRange(-1f, 1f);
+        offsetPosition = Random.Range(-1f, 1f);
         gameObject.GetComponent<Rigidbody2D>().isKinematic= true;
         //Change Physics to Kinematic
     }
