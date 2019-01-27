@@ -8,11 +8,14 @@ public class GameManager : MonoBehaviour {
     public int people_saved = 0;
     public bool gameOver = false;
 
+    public AudioSource audio;
+
     public GameObject player;
 	// Use this for initialization
-	void Start ()
-    {
-        
+
+	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
+        audio.Play();
 	}
 	
 	// Update is called once per frame
