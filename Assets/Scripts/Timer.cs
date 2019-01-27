@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
         // and  game restarts on a button press (?)
         if (timeLeft <= 0.0f)
         {
-            timer.text = "GAME OVER";
+            timer.text = "";
         }
     }
 }

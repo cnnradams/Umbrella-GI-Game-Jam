@@ -791,7 +791,6 @@ GameObject:
   - component: {fileID: 4003244742233526017}
   - component: {fileID: 4003244742233526023}
   - component: {fileID: 4003244742233526016}
-  - component: {fileID: 7321481094791436015}
   - component: {fileID: 7406477087554628157}
   m_Layer: 10
   m_Name: TestPlayer
@@ -917,6 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfcc16ddd267074b91c6bce228a6500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  people_saved: 0
+  friend_list_length: 0
   umbrella: {fileID: 9156504245238153529}
   pointLight: {fileID: 0}
   warmth: 100
@@ -930,6 +931,8 @@ MonoBehaviour:
   moveSpeed: 7
   jumpForce: 25
   rb: {fileID: 0}
+  atHome: 0
+  canJump: 0
 --- !u!61 &4003244742233526023
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -975,25 +978,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7321481094791436015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4003244742233526030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ecda002db47c1e4bb3dfc7de24ab766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 60
-  people_saved: 0
-  warmth_max: 100
-  warmth_decrease: 10
-  warmth_gain: 10
-  gameOver: 0
-  player: {fileID: 4003244742233526030}
 --- !u!114 &7406477087554628157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1006,10 +990,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aaeaa6be70b9ca4285af6500aa1eb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  StartingColdDmg: 1
   StartingPlayerWarmth: 100
+  maxPlayerWarmth: 0
   playerWarmth: 0
-  coldDmg: 0
   warmthSlider: {fileID: 2565151015012951982}
+  numberFriends: 0
 --- !u!1 &4003244742505694450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingTimeLeft: 60
+  timeLeft: 0
   timer: {fileID: 4582741659924720969}
 --- !u!1001 &4738761747334225763
 PrefabInstance:
@@ -1501,6 +1489,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19904136, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
+      propertyPath: m_LengthScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 19889002, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.5
@@ -1544,10 +1536,6 @@ PrefabInstance:
     - target: {fileID: 19889002, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
       propertyPath: RotationBySpeedModule.curve.scalar
       value: 0.7853981
-      objectReference: {fileID: 0}
-    - target: {fileID: 19904136, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
-      propertyPath: m_LengthScale
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
