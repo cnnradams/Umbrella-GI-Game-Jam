@@ -27,7 +27,7 @@ public class Chunk : MonoBehaviour
     void Start()
     {
         platforms = new List<Platform>();
-        instantiatedGround = Instantiate(groundPrefab, transform.position, Quaternion.identity, transform);
+        instantiatedGround = Instantiate(groundPrefab, new Vector2(transform.position.x, transform.position.y + (index == 0 || index == -1 ? 0 : Random.Range(0, 5f))), Quaternion.identity, transform);
         instantiatedGround.transform.localScale = new Vector3(width, instantiatedGround.transform.localScale.y, instantiatedGround.transform.localScale.z);
         groundPlatform = new Platform(instantiatedGround, instantiatedGround.transform.position.y + instantiatedGround.transform.localScale.y / 2.0f);
         GeneratePlatforms(previousPlatforms, isLeft);
@@ -66,7 +66,7 @@ public class Chunk : MonoBehaviour
     {
         foreach (Platform p in heights)
         {
-            float w = Random.Range(minPlatformSize, 50);
+            float w = Random.Range(minPlatformSize, width / 1.5f);
             if (w > width)
             {
                 w = width;
@@ -89,7 +89,7 @@ public class Chunk : MonoBehaviour
     }
     void GenerateNewPlatforms()
     {
-        float curYHeight = groundPrefab.transform.position.y + groundPrefab.transform.localScale.y / 2.0f + 1;
+        float curYHeight = instantiatedGround.transform.position.y + instantiatedGround.transform.localScale.y / 2.0f + 2;
         // keep making new platforms until luck runs out
         while (Random.Range(0.0f, 1.0f) < platformGenChance)
         {
@@ -107,7 +107,7 @@ public class Chunk : MonoBehaviour
                 }
             } while (!good);
             float xPos = transform.position.x + Random.Range(-width / 3.0f, width / 3.0f);
-            float xWidth = Random.Range(minPlatformSize, 100);
+            float xWidth = Random.Range(minPlatformSize, width);
             if (xPos < transform.position.x)
             {
                 if (xPos - xWidth / 2.0f < transform.position.x - width / 2.0f)
