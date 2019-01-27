@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TestPlayer : MonoBehaviour
 {
-
-
+    public float people_saved;
+    public float friend_list_length = 0f;
 
     public Umbrella umbrella;
     public Light pointLight;
@@ -109,6 +109,8 @@ public class TestPlayer : MonoBehaviour
 
     void Update()
     {
+        friend_list_length = friend_list.Count;
+
         moveSpeed = speed_scale * Mathf.Exp(-speed_power * friend_list.Count) + min_speed;
         jumpForce = jump_scale * Mathf.Exp(-jump_power * friend_list.Count) + min_jump;
         // Drop Friends

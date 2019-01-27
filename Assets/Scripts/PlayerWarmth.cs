@@ -3,29 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// private Timer timer;
+// timer = gameObject.GetComponentInChildren<Timer>();
+
+
 public class PlayerWarmth : MonoBehaviour
 {
+
+    public TestPlayer player;
+
     // Starting values for Total Warmth and Cold damage:
-    private float StartingColdDmg = 0.5f;
+    public float StartingColdDmg = 1f;
     public float StartingPlayerWarmth = 100;
 
     public float playerWarmth;
-    public float coldDmg;
+    private float coldDmg;
 
     public Slider warmthSlider;
+   
+    public float numberFriends = 0f;
+    private float newNumberFriends;
 
-    
     void Start()
     {
+        player = GetComponent<TestPlayer>();
+
         playerWarmth = StartingPlayerWarmth;
         coldDmg = StartingColdDmg;
+
+        newNumberFriends = numberFriends;
     }
+
 
     void Update()
     {
+        numberFriends = (player.friend_list_length);
+        
+        if (numberFriends > 0)
+        {
+            if (numberFriends > newNumberFriends)
+            {
+                coldDmg -= numberFriends/15;
+                newNumberFriends = numberFriends;
+            }
+            else if (numberFriends < newNumberFriends)
+            {
+                coldDmg += numberFriends/15;
+                newNumberFriends = numberFriends;
+            }
+        }
+        else
+        {
+            coldDmg = StartingColdDmg;
+        }
+        
+        
         playerWarmth -= coldDmg * Time.deltaTime;
 
-        // Here we can add warmth if we have Friends close to us!
         // We can also increase the Cold damage here.
 
         warmthSlider.value = playerWarmth;
