@@ -83,7 +83,7 @@ public class TestPlayer : MonoBehaviour
         {
             sprite.flipX = true;
         }
-        else
+        else if (move > 0)
         {
             sprite.flipX = false;
         }
