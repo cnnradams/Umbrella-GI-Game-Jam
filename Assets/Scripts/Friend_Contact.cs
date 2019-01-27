@@ -20,9 +20,9 @@ public class Friend_Contact : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Home") && friend.cold)
+        if (collision.gameObject.CompareTag("Home") && friend.cold || friend.player.GetComponent<TestPlayer>().atHome)
         {
-            Debug.Log("Entered Contact");
+            //Debug.Log("Entered Contact");
             friend.atHome = true;
             friend.homePosition = collision.gameObject.transform.position;
         }

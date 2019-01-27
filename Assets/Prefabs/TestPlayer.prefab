@@ -348,7 +348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79, y: -0}
+  m_AnchoredPosition: {x: -79, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3332902365928621334
@@ -717,7 +717,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &3265356389927666200
 MonoBehaviour:
@@ -918,6 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   umbrella: {fileID: 9156504245238153529}
+  pointLight: {fileID: 0}
   warmth: 100
   drop_distance: 0.5
   speed_scale: 12
@@ -928,6 +929,7 @@ MonoBehaviour:
   min_jump: 5
   moveSpeed: 7
   jumpForce: 25
+  rb: {fileID: 0}
 --- !u!61 &4003244742233526023
 BoxCollider2D:
   m_ObjectHideFlags: 0

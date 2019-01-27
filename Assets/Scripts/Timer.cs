@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 {
 
     public float StartingTimeLeft = 60;
-    private float timeLeft;
+    public float timeLeft;
     public Text timer;
 
 
