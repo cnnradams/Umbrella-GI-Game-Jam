@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - Home
   - Umbrella
+  - HomeArrow
   layers:
   - Default
   - TransparentFX
