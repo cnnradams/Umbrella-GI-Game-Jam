@@ -701,10 +701,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfcc16ddd267074b91c6bce228a6500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  umbrella: {fileID: 9156504245238153529}
+  warmth: 100
+  drop_distance: 0.5
+  speed_scale: 12
+  speed_power: 0.3
+  min_speed: 3
+  jump_scale: 20
+  jump_power: 0.05
+  min_jump: 5
   moveSpeed: 7
   jumpForce: 25
-  warmth: 100
-  umbrella: {fileID: 9156504245238153529}
 --- !u!61 &4003244742233526023
 BoxCollider2D:
   m_ObjectHideFlags: 0
