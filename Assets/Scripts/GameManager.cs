@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour {
 
     public bool gameOver = false;
 
+    public AudioSource audio;
+
     public GameObject player;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        SoundManager.instance.PlayMusic();
+        audio.Play();
 	}
 	
 	// Update is called once per frame

@@ -10,7 +10,7 @@ public class TestPlayer : MonoBehaviour
     public Umbrella umbrella;
     public Light pointLight;
     public float warmth = 100;
-    public float drop_distance = 0.5f;
+    public float drop_distance = 0.6f;
 
     public float speed_scale = 8f;
     public float speed_power = 1f;
@@ -31,6 +31,7 @@ public class TestPlayer : MonoBehaviour
     public AudioClip failsound;
     public AudioClip dropsound;
     public AudioClip pickupsound;
+    public SpriteRenderer sprite;
 
     private List<GameObject> friend_list = new List<GameObject>();
     private CircleCollider2D boxColl;
@@ -78,6 +79,14 @@ public class TestPlayer : MonoBehaviour
         // Left and right
 
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
+        if (move < 0)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
+        }
 
     }
 
