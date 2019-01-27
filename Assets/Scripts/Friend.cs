@@ -22,7 +22,7 @@ public class Friend : MonoBehaviour
     private float wanderPosition;
     private float offsetExit = 1f;
     private bool wander_stopped;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,7 @@ public class Friend : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         umbrella = player.GetComponentInChildren<Umbrella>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        speed = Random.Range(0.5f,1f);
+        speed = Random.Range(0.5f, 1f);
         wander();
         wander_stopped = true;
     }
@@ -44,7 +44,7 @@ public class Friend : MonoBehaviour
         anim.SetBool("Cold", cold);
         if (player.GetComponent<TestPlayer>().rb.velocity.magnitude > 1)
         {
-            wanderPosition = offsetPosition;
+            // wanderPosition = offsetPosition;
         }
         float step = current_speed * Time.deltaTime;
         if (atHome)
@@ -90,12 +90,12 @@ public class Friend : MonoBehaviour
     }
     private void followPlayer(float step)
     {
-        if(wanderPosition - offsetPosition < 0.06 && wander_stopped)
+        if (wanderPosition - offsetPosition < 0.06 && wander_stopped)
         {
             wander_stopped = false;
             StartCoroutine(waitAndWander());
         }
-        offsetPosition = offsetPosition+(wanderPosition - offsetPosition)*step;
+        offsetPosition = offsetPosition + (wanderPosition - offsetPosition) * step;
         //Debug.Log("offset" + offsetPosition);
         //Debug.Log("Wander" + wanderPosition);
         gameObject.transform.position = player.transform.position + new Vector3(offsetPosition, 0);

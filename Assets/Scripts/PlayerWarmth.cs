@@ -20,7 +20,7 @@ public class PlayerWarmth : MonoBehaviour
     private float lastColdDmg;
 
     public Slider warmthSlider;
-   
+
     public float numberFriends = 0f;
     private float newNumberFriends;
 
@@ -47,12 +47,12 @@ public class PlayerWarmth : MonoBehaviour
         {
             if (numberFriends > newNumberFriends)
             {
-                coldDmg -= numberFriends/15;
+                coldDmg -= numberFriends / 10;
                 newNumberFriends = numberFriends;
             }
             else if (numberFriends < newNumberFriends)
             {
-                coldDmg += numberFriends/15;
+                coldDmg += numberFriends / 10;
                 newNumberFriends = numberFriends;
             }
         }
@@ -60,7 +60,7 @@ public class PlayerWarmth : MonoBehaviour
         {
             coldDmg = lastColdDmg;
         }
-        
+
         if (playerWarmth <= maxPlayerWarmth)
         {
             playerWarmth -= coldDmg * Time.deltaTime;
@@ -70,9 +70,14 @@ public class PlayerWarmth : MonoBehaviour
             playerWarmth = maxPlayerWarmth;
         }
 
-        coldDmg += 0.01f * Time.deltaTime;
-        
+        coldDmg += 0.03f * Time.deltaTime;
+
 
         warmthSlider.value = playerWarmth;
+        if (playerWarmth <= 0)
+        {
+            timer.GameOver();
+            Invoke("Menu", 3f);
+        }
     }
 }

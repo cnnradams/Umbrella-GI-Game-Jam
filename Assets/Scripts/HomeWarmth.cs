@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class HomeWarmth : MonoBehaviour
 {
-    public float regen_warmth = 10f;
+    public float regen_warmth = 5f;
     private PlayerWarmth playerwarmth;
     private GameManager gameManager;
     public float radius_scale = 0.5f;
@@ -19,12 +19,12 @@ public class HomeWarmth : MonoBehaviour
     {
         playerwarmth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWarmth>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.gameObject.CompareTag("Player"))
         {
             inHouse = true;
@@ -40,12 +40,12 @@ public class HomeWarmth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        circle2D.radius = gameManager.people_saved*radius_scale + 1f;
-        light.range = gameManager.people_saved*radius_scale * 10f + 10f;
-        light.intensity = gameManager.people_saved*intensity_scale + 10f;
+        circle2D.radius = gameManager.people_saved * radius_scale + 1f;
+        light.range = gameManager.people_saved * radius_scale * 10f + 10f;
+        light.intensity = gameManager.people_saved * intensity_scale + 10f;
         if (inHouse)
         {
-            playerwarmth.playerWarmth += regen_warmth;
+            playerwarmth.playerWarmth += regen_warmth * Time.deltaTime;
         }
     }
 }
