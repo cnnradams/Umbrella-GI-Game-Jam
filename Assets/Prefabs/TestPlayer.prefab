@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   player: {fileID: 0}
-  StartingColdDmg: 1
+  StartingColdDmg: 1.5
   StartingPlayerWarmth: 100
   maxPlayerWarmth: 0
   playerWarmth: 0
@@ -1640,7 +1640,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -47}
-  m_SizeDelta: {x: 273.02, y: 75}
+  m_SizeDelta: {x: 750.21, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7522460689985839126
 CanvasRenderer:
