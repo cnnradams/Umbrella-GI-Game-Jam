@@ -6,30 +6,46 @@ using UnityEngine;
 
 public class HomeWarmth : MonoBehaviour
 {
-    public float startingWarmth = 10f;
-    private float totalWarmth;
+    public float regen_warmth = 10f;
     private PlayerWarmth playerwarmth;
-
+    private GameManager gameManager;
+    public float radius_scale = 0.5f;
+    public CircleCollider2D circle2D;
+    public bool inHouse;
+    public Light light;
+    public float intensity_scale;
     // Start is called before the first frame update
     void Start()
     {
-        playerwarmth = GetComponent<PlayerWarmth>();
-        totalWarmth = startingWarmth;
+        playerwarmth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerWarmth>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "TestPlayer" &&
-            playerwarmth.playerWarmth < playerwarmth.StartingPlayerWarmth)
+        
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("colliding!");
-            playerwarmth.playerWarmth += totalWarmth;
+            inHouse = true;
         }
     }
-
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            inHouse = false;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        circle2D.radius = gameManager.people_saved*radius_scale + 1f;
+        light.range = gameManager.people_saved*radius_scale * 10f + 10f;
+        light.intensity = gameManager.people_saved*intensity_scale + 10f;
+        if (inHouse)
+        {
+            playerwarmth.playerWarmth += regen_warmth;
+        }
     }
 }
