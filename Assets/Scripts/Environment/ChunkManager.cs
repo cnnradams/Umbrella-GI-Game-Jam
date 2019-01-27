@@ -46,6 +46,10 @@ public class ChunkManager : MonoBehaviour
             chunks.Add(currentFurthestLeftChunk, GenerateChunk(currentFurthestLeftChunk, true));
         }
     }
+
+    // -1 down, 0 normal, 1 up
+    int randomUp = 0;
+    public float randomUpChance = 0.2f;
     Chunk GenerateChunk(int index, bool isLeft)
     {
         int chunkWidth = Random.Range(chunkWidthMin, chunkWidthMax);
@@ -65,15 +69,27 @@ public class ChunkManager : MonoBehaviour
             furthestRightPosition = c.transform.position.x + chunkWidth / 2.0f;
         }
         Chunk last;
+        float rand = Random.Range(0f, 1f);
+        Debug.Log(rand);
+        Debug.Log(rand < randomUpChance);
+        if (rand < randomUpChance)
+        {
+            randomUp = Random.Range(-1, 2);
+            Debug.Log("New: " + randomUp);
+        }
+        c.randomDir = randomUp;
         chunks.TryGetValue(index + (isLeft ? 1 : -1), out last);
         c.isLeft = isLeft;
         if (last == null)
         {
+            Debug.Log("no last height");
             c.previousPlatforms = new List<Chunk.Platform>();
+            c.lastHeight = 0;
         }
         else
         {
             c.previousPlatforms = last.GetRightPlatformPoints(isLeft);
+            c.lastHeight = last.newHeight;
         }
 
         return c;

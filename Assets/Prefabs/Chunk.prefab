@@ -53,8 +53,12 @@ MonoBehaviour:
   minPlatformHeightDifference: 2
   maxPlatformHeightDifference: 5
   minPlatformSize: 5
+  randomDir: 0
   width: 0
   index: 0
+  lastHeight: 0
   isLeft: 0
-  minFriendsPerChunk: 0
-  maxFriendsPerChunk: 3
+  newHeight: 0
+  minFriendsPerPlatform: 0
+  maxFriendsPerPlatform: 1
+  friendsScalar: 0.75

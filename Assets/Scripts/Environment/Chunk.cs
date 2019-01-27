@@ -12,27 +12,53 @@ public class Chunk : MonoBehaviour
     public float minPlatformHeightDifference = 1;
     public float maxPlatformHeightDifference = 10;
     public float minPlatformSize = 5;
+    public int randomDir = 0;
     List<Platform> platforms;
     // pass in from calling class
     public float width;
     public int index;
+    public float lastHeight;
     public List<Platform> previousPlatforms;
     public bool isLeft = false;
-
-    public int minFriendsPerChunk = 0;
-    public int maxFriendsPerChunk = 2;
+    public float newHeight = 0;
+    public int minFriendsPerPlatform = 0;
+    public int maxFriendsPerPlatform = 2;
+    public float friendsScalar = 0.5f;
     Platform groundPlatform;
     GameObject instantiatedGround;
     // Start is called before the first frame update
     void Start()
     {
         platforms = new List<Platform>();
-        instantiatedGround = Instantiate(groundPrefab, new Vector2(transform.position.x, transform.position.y + (index == 0 || index == -1 ? 0 : Random.Range(0, 4f))), Quaternion.identity, transform);
-        instantiatedGround.transform.localScale = new Vector3(width, instantiatedGround.transform.localScale.y, instantiatedGround.transform.localScale.z);
+        float height = transform.position.y;
+        Debug.Log("Last height: " + lastHeight);
+        if (index != 0 && index != -1)
+        {
+            height += lastHeight;
+            Debug.Log("normal height: " + height);
+            if (randomDir == 1)
+            {
+                Debug.Log("UP");
+                height += Random.Range(0, 4f);
+            }
+            else if (randomDir == -1)
+            {
+                Debug.Log("DOWN");
+                height += Random.Range(-4f, 0);
+            }
+            else
+            {
+                height += Random.Range(-3f, 3f);
+            }
+            Debug.Log("adjusted height: " + height);
+        }
+        newHeight = height;
+        instantiatedGround = Instantiate(groundPrefab, new Vector2(transform.position.x, height - 10), Quaternion.identity, transform);
+        instantiatedGround.transform.localScale = new Vector3(width, instantiatedGround.transform.localScale.y + 20, instantiatedGround.transform.localScale.z);
         groundPlatform = new Platform(instantiatedGround, instantiatedGround.transform.position.y + instantiatedGround.transform.localScale.y / 2.0f);
         GeneratePlatforms(previousPlatforms, isLeft);
         // Generating Friends in chunk
-        int numFriends = Random.Range(minFriendsPerChunk, maxFriendsPerChunk + 1);
+        int numFriends = Random.Range(minFriendsPerPlatform * platforms.Count + 1, (int)Mathf.Floor((maxFriendsPerPlatform * platforms.Count + 2) * friendsScalar));
         for (int i = 0; i < numFriends; i++)
         {
             InstantiateFriend();
