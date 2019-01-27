@@ -226,6 +226,7 @@ MonoBehaviour:
   chunkWidth: 32
   chunkPrefab: {fileID: 8215012783761721055, guid: 2906003871670914f85305a85efc061a,
     type: 3}
+  tCamera: {fileID: 0}
 --- !u!4 &711456499
 Transform:
   m_ObjectHideFlags: 0
