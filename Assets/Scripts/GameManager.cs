@@ -34,6 +34,6 @@ public class GameManager : MonoBehaviour {
     }
     public void addTime()
     {
-        time.timeLeft += 10f;
+        time.timeLeft += 5f;
     }
 }
