@@ -21,14 +21,17 @@ public class TestPlayer : MonoBehaviour
 
     public float moveSpeed;
     public float jumpForce;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
+    public bool atHome;
+
     private List<GameObject> friend_list = new List<GameObject>();
     private CircleCollider2D boxColl;
     private Animator anim;
 
-    private bool canJump;
+    public bool canJump;
     private bool dropping;
     private float dropTimer = 0.2f;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,9 +71,13 @@ public class TestPlayer : MonoBehaviour
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - drop_distance);
                 dropping = false;
             }
-
             canJump = true;
         }
+        if (Other.collider.gameObject.tag == "Home")
+        {
+            atHome = true;
+        }
+        atHome = false;
     }
     void OnCollisionExit2D(Collision2D Other)
     {
@@ -118,12 +125,19 @@ public class TestPlayer : MonoBehaviour
         {
             if (friend_list.Count > 0)
             {
-                Friend friend = friend_list[0].GetComponent<Friend>();
-                umbrella.Shrink();
-                friend.drop();
-                friend_list.RemoveAt(0);
-                pointLight.range--;
-                pointLight.intensity--;
+                if ( friend_list[0] == null)
+                {
+                    friend_list.RemoveAt(0);
+                }
+                else
+                {
+                    Friend friend = friend_list[0].GetComponent<Friend>();
+                    umbrella.Shrink();
+                    friend_list.RemoveAt(0);
+                    friend.drop();
+                    pointLight.range--;
+                    pointLight.intensity--;
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -137,7 +151,6 @@ public class TestPlayer : MonoBehaviour
             dropping = false;
             dropTimer = 0.2f;
         }
-
         anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
     }
 }
