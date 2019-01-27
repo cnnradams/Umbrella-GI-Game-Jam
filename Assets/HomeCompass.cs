@@ -21,7 +21,7 @@ public class HomeCompass : MonoBehaviour
         thisObject = GameObject.FindGameObjectWithTag("HomeArrow");
         distance = thisObject.GetComponentInChildren<Text>();
         thisObject.SetActive(false);
-        Debug.Log(distance.gameObject.name);
+        //Debug.Log(distance.gameObject.name);
 
     }
 
