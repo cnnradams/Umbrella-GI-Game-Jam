@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
 
+    private GameObject gameManager;
     public float StartingTimeLeft = 60;
     public float timeLeft;
     public Text timer;
@@ -14,6 +15,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         timeLeft = StartingTimeLeft;
     }
    
@@ -22,19 +24,14 @@ public class Timer : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
 
-        // Here we can add time per Friend saved!
-        // Maybe something like:
-        // if (player saved){
-        //   timeLeft += 10f; }
-
 
         timer.text = timeLeft.ToString("F");
 
-        // When timer ends, here we make it so the player cannot move,
-        // and  game restarts on a button press (?)
+        // END GAME
         if (timeLeft <= 0.0f)
         {
             timer.text = "GAME OVER";
         }
+
     }
 }

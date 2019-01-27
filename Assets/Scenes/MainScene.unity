@@ -322,11 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecda002db47c1e4bb3dfc7de24ab766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 60
   people_saved: 0
-  warmth_max: 100
-  warmth_decrease: 10
-  warmth_gain: 10
   gameOver: 0
   player: {fileID: 0}
 --- !u!1 &1604471335

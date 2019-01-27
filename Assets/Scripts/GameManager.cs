@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    public float time = 60;
     public int people_saved = 0;
-    public float warmth_max = 100;
-    public float warmth_decrease = 10;
-    public float warmth_gain = 10;
 
     public bool gameOver = false;
 
@@ -26,6 +22,11 @@ public class GameManager : MonoBehaviour {
     public void droppedHome()
     {
         people_saved++;
+        //Debug.Log("People Saved: " + people_saved);
+
+    }
+    public void addTime()
+    {
         
     }
 }
