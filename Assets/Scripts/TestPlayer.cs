@@ -24,6 +24,13 @@ public class TestPlayer : MonoBehaviour
     public Rigidbody2D rb;
     public bool atHome;
 
+    public AudioSource audio;
+
+    public AudioClip movesound;
+    public AudioClip jumpsound;
+    public AudioClip failsound;
+    public AudioClip dropsound;
+
     private List<GameObject> friend_list = new List<GameObject>();
     private CircleCollider2D boxColl;
     private Animator anim;
@@ -39,16 +46,25 @@ public class TestPlayer : MonoBehaviour
         boxColl = gameObject.GetComponent<CircleCollider2D>();
         umbrella = transform.GetComponentInChildren<Umbrella>();
         pointLight = transform.GetComponentInChildren<Light>();
+        audio = GetComponent<AudioSource>();
+        audio.clip = movesound;
     }
 
     void FixedUpdate()
     {
 
         float move = Input.GetAxis("Horizontal");
-
+        if (Mathf.Abs(move) > 0 && canJump)
+        {
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+        }
         // Jump
         if (Input.GetButton("Jump") && canJump)
         {
+            SoundManager.instance.RandomizeSfx(jumpsound);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             canJump = false;
         }
@@ -123,8 +139,10 @@ public class TestPlayer : MonoBehaviour
         // Drop Friends
         if (Input.GetKeyDown(KeyCode.E))
         {
+           
             if (friend_list.Count > 0)
             {
+                SoundManager.instance.RandomizeSfx(dropsound);
                 if ( friend_list[0] == null)
                 {
                     friend_list.RemoveAt(0);
@@ -138,6 +156,10 @@ public class TestPlayer : MonoBehaviour
                     pointLight.range--;
                     pointLight.intensity--;
                 }
+            }
+            else
+            {
+                SoundManager.instance.RandomizeSfx(failsound);
             }
         }
         if (Input.GetKeyDown(KeyCode.S))

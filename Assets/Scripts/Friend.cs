@@ -10,6 +10,8 @@ public class Friend : MonoBehaviour
     public float speed;
     public Vector3 homePosition;
 
+    public AudioClip hoemsound;
+
     private Rigidbody2D rb;
     private Animator anim;
     public GameObject player;

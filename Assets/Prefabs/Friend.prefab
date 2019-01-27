@@ -170,7 +170,10 @@ MonoBehaviour:
   cold: 0
   returnSpeed: 1
   atHome: 0
+  speed: 0
   homePosition: {x: 0, y: 0, z: 0}
+  hoemsound: {fileID: 8300000, guid: 55ce698f8f8080240acdedb4bca5831a, type: 3}
+  player: {fileID: 0}
 --- !u!61 &6089998440025051069
 BoxCollider2D:
   m_ObjectHideFlags: 0
