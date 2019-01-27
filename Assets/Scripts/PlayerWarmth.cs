@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// private Timer timer;
-// timer = gameObject.GetComponentInChildren<Timer>();
 
 
 public class PlayerWarmth : MonoBehaviour
 {
-
+    private Timer timer;
     public TestPlayer player;
 
     // Starting values for Total Warmth and Cold damage:
     public float StartingColdDmg = 1f;
     public float StartingPlayerWarmth = 100;
 
+    public float maxPlayerWarmth;
     public float playerWarmth;
-    private float coldDmg;
+    public float coldDmg;
+    private float lastColdDmg;
 
     public Slider warmthSlider;
    
@@ -26,10 +26,13 @@ public class PlayerWarmth : MonoBehaviour
 
     void Start()
     {
+        timer = gameObject.GetComponentInChildren<Timer>();
         player = GetComponent<TestPlayer>();
 
+        maxPlayerWarmth = StartingPlayerWarmth;
         playerWarmth = StartingPlayerWarmth;
         coldDmg = StartingColdDmg;
+        lastColdDmg = coldDmg;
 
         newNumberFriends = numberFriends;
     }
@@ -38,7 +41,15 @@ public class PlayerWarmth : MonoBehaviour
     void Update()
     {
         numberFriends = (player.friend_list_length);
+<<<<<<< HEAD
         
+       
+
+=======
+
+
+        lastColdDmg = coldDmg;
+>>>>>>> 6d4df696ba62c9eaf181ce2616c79e97ad5f352a
         if (numberFriends > 0)
         {
             if (numberFriends > newNumberFriends)
@@ -54,13 +65,24 @@ public class PlayerWarmth : MonoBehaviour
         }
         else
         {
-            coldDmg = StartingColdDmg;
+            coldDmg = lastColdDmg;
         }
         
+        if (playerWarmth <= maxPlayerWarmth)
+        {
+            playerWarmth -= coldDmg * Time.deltaTime;
+        }
+        else
+        {
+            playerWarmth = maxPlayerWarmth;
+        }
+<<<<<<< HEAD
         
-        playerWarmth -= coldDmg * Time.deltaTime;
+=======
+>>>>>>> 6d4df696ba62c9eaf181ce2616c79e97ad5f352a
 
-        // We can also increase the Cold damage here.
+        coldDmg += 0.01f * Time.deltaTime;
+        
 
         warmthSlider.value = playerWarmth;
     }
