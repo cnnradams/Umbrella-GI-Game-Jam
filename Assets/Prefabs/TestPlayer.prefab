@@ -945,7 +945,7 @@ SpriteRenderer:
   m_Size: {x: 15.12, y: 15.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &4003244742233526028
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be37b406e038f8b4cba97871614bd54c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingTimeLeft: 60
+  StartingTimeLeft: 30
   timeLeft: 0
   timer: {fileID: 4582741659924720969}
 --- !u!1001 &4738761747334225763
