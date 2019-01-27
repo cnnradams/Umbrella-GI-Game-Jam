@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-
-    private GameObject gameManager;
     public float StartingTimeLeft = 60;
     public float timeLeft;
     public Text timer;
@@ -15,7 +13,6 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         timeLeft = StartingTimeLeft;
     }
    

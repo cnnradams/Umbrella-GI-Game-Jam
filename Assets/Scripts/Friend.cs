@@ -50,6 +50,7 @@ public class Friend : MonoBehaviour
         if (atHome)
         {
             gameManager.GetComponent<GameManager>().droppedHome();
+            gameManager.GetComponent<GameManager>().addTime();
             SoundManager.instance.RandomizeSfx(homesound);
             Destroy(gameObject);
 
