@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void friendDropped()
+    public void droppedHome()
     {
         people_saved++;
-        warmth_max += warmth_gain;
+        
     }
 }

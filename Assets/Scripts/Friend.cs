@@ -28,7 +28,7 @@ public class Friend : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         umbrella = player.GetComponentInChildren<Umbrella>();
-        // gameManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         speed = Random.Range(0.5f,1f);
         wander();
         wander_stopped = true;
@@ -46,16 +46,8 @@ public class Friend : MonoBehaviour
         float step = current_speed * Time.deltaTime;
         if (atHome)
         {
-            /*
-            Debug.Log("Entered atHome");
-           Vector3 offset = homePosition - gameObject.transform.position;
-           rb.velocity = new Vector2(offset.x, offset.y) * returnSpeed;
-
-            if(Mathf.Abs(offset.x) < 0.1f)
-            {
-            */
-            // gameManager.GetComponent<GameManager>().friendDropped();
-            Debug.Log("Entered Home");
+            gameManager.GetComponent<GameManager>().droppedHome();
+           
             Destroy(gameObject);
 
         }
