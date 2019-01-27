@@ -14,6 +14,9 @@ public class Friend : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    public Animator player_anim;
+    public SpriteRenderer sprite;
+
     public GameObject player;
     private GameObject gameManager;
     private Umbrella umbrella;
@@ -30,6 +33,7 @@ public class Friend : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        player_anim = player.GetComponent<Animator>();
         umbrella = player.GetComponentInChildren<Umbrella>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         speed = Random.Range(0.5f,1f);
@@ -40,8 +44,25 @@ public class Friend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         float current_speed = speed;
         anim.SetBool("Cold", cold);
+        if(Mathf.Abs(player_anim.GetFloat("Speed")) > 0 || Mathf.Abs(wanderPosition - offsetPosition) > 0.06)
+        {
+            anim.SetBool("Move", true);
+            
+            if (Mathf.Abs(player_anim.GetFloat("Speed")) > 0) sprite.flipX = player.GetComponent<SpriteRenderer>().flipX;
+            else
+            {
+                sprite.flipX = (wanderPosition - offsetPosition) < 0;
+            }
+            
+        }
+        else
+        {
+            anim.SetBool("Move",false);
+
+        }
         if (player.GetComponent<TestPlayer>().rb.velocity.magnitude > 1)
         {
             wanderPosition = offsetPosition;
@@ -110,7 +131,7 @@ public class Friend : MonoBehaviour
     }
     private void wander()
     {
-        wanderPosition = Random.Range(umbrella.GetMaxLeft(), umbrella.GetMaxRight());
+        wanderPosition = Random.Range(umbrella.GetMaxLeft()+0.2f, umbrella.GetMaxRight()-0.2f);
 
     }
 }
