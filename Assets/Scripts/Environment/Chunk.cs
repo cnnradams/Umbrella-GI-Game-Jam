@@ -27,7 +27,7 @@ public class Chunk : MonoBehaviour
     void Start()
     {
         platforms = new List<Platform>();
-        instantiatedGround = Instantiate(groundPrefab, new Vector2(transform.position.x, transform.position.y + (index == 0 || index == -1 ? 0 : Random.Range(0, 5f))), Quaternion.identity, transform);
+        instantiatedGround = Instantiate(groundPrefab, new Vector2(transform.position.x, transform.position.y + (index == 0 || index == -1 ? 0 : Random.Range(0, 4f))), Quaternion.identity, transform);
         instantiatedGround.transform.localScale = new Vector3(width, instantiatedGround.transform.localScale.y, instantiatedGround.transform.localScale.z);
         groundPlatform = new Platform(instantiatedGround, instantiatedGround.transform.position.y + instantiatedGround.transform.localScale.y / 2.0f);
         GeneratePlatforms(previousPlatforms, isLeft);
