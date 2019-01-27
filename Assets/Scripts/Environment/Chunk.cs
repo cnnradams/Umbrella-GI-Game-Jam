@@ -81,7 +81,7 @@ public class Chunk : MonoBehaviour
                 xPos = transform.position.x - width / 2.0f + w / 2.0f;
             }
             GameObject newP = Instantiate(platformPrefab, new Vector2(xPos, p.platformObj.transform.position.y), Quaternion.identity, transform);
-            newP.transform.localScale = new Vector2(w, newP.transform.localScale.y);
+            newP.transform.localScale = new Vector3(w, newP.transform.localScale.y, 1);
             Platform n = new Platform(newP, newP.transform.position.y + newP.transform.localScale.y / 2.0f);
             platforms.Add(n);
         }
@@ -123,7 +123,7 @@ public class Chunk : MonoBehaviour
                 }
             }
             GameObject plat = Instantiate(platformPrefab, new Vector2(xPos, curYHeight), Quaternion.identity, transform);
-            plat.transform.localScale = new Vector3(xWidth, plat.transform.localScale.y, plat.transform.localScale.z);
+            plat.transform.localScale = new Vector3(xWidth, plat.transform.localScale.y, 1);
             platforms.Add(new Platform(plat, plat.transform.position.y + plat.transform.localScale.y / 2.0f));
         }
     }

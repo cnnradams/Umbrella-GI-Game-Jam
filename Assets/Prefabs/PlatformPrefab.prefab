@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6906623954763699715}
   m_Layer: 0
   m_Name: PlatformPrefab
-  m_TagString: Ground
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 35a52ac3a2ccbce4ea7af996e208fe13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 620099b5bdf5e2542a3ac5c694a098ee, type: 3}
-  m_Color: {r: 0.6792453, g: 0.6760413, b: 0.6760413, a: 1}
+  m_Color: {r: 0.23584908, g: 0.17466182, b: 0.17466182, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
