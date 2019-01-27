@@ -921,8 +921,8 @@ MonoBehaviour:
   warmth: 100
   drop_distance: 0.5
   speed_scale: 12
-  speed_power: 0.3
-  min_speed: 3
+  speed_power: 0.2
+  min_speed: 3.5
   jump_scale: 20
   jump_power: 0.05
   min_jump: 5
