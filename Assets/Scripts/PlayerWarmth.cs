@@ -16,6 +16,7 @@ public class PlayerWarmth : MonoBehaviour
     public float StartingColdDmg = 1f;
     public float StartingPlayerWarmth = 100;
 
+    public float maxPlayerWarmth;
     public float playerWarmth;
     private float coldDmg;
 
@@ -28,6 +29,7 @@ public class PlayerWarmth : MonoBehaviour
     {
         player = GetComponent<TestPlayer>();
 
+        maxPlayerWarmth = StartingPlayerWarmth;
         playerWarmth = StartingPlayerWarmth;
         coldDmg = StartingColdDmg;
 
@@ -39,6 +41,8 @@ public class PlayerWarmth : MonoBehaviour
     {
         numberFriends = (player.friend_list_length);
         
+       
+
         if (numberFriends > 0)
         {
             if (numberFriends > newNumberFriends)
@@ -57,8 +61,15 @@ public class PlayerWarmth : MonoBehaviour
             coldDmg = StartingColdDmg;
         }
         
+        if (playerWarmth <= maxPlayerWarmth)
+        {
+            playerWarmth -= coldDmg * Time.deltaTime;
+        }
+        else
+        {
+            playerWarmth = maxPlayerWarmth;
+        }
         
-        playerWarmth -= coldDmg * Time.deltaTime;
 
         // We can also increase the Cold damage here.
 
