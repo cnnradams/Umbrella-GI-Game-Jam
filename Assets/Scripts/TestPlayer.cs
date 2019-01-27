@@ -8,6 +8,7 @@ public class TestPlayer : MonoBehaviour
 
 
     public Umbrella umbrella;
+    public Light pointLight;
     public float warmth = 100;
     public float drop_distance = 0.5f;
 
@@ -34,6 +35,7 @@ public class TestPlayer : MonoBehaviour
         anim = GetComponent<Animator>();
         boxColl = gameObject.GetComponent<CircleCollider2D>();
         umbrella = transform.GetComponentInChildren<Umbrella>();
+        pointLight = transform.GetComponentInChildren<Light>();
     }
 
     void FixedUpdate()
@@ -95,6 +97,8 @@ public class TestPlayer : MonoBehaviour
 
             if (friend.cold)
             {
+                pointLight.range++;
+                pointLight.intensity++;
                 umbrella.Extend();
                 friend_list.Add(go);
                 friend.pickup();
@@ -116,6 +120,8 @@ public class TestPlayer : MonoBehaviour
                 umbrella.Shrink();
                 friend.drop();
                 friend_list.RemoveAt(0);
+                pointLight.range--;
+                pointLight.intensity--;
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
