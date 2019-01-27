@@ -53,7 +53,7 @@ public class HomeCompass : MonoBehaviour
 
 
             }
-            distance.text = "Home\n" + magnitude;
+            distance.text = "Home\n" + (magnitude/10).ToString("F2");
             thisObject.SetActive(true);
         }
         else
