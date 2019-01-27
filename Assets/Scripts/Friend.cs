@@ -10,7 +10,7 @@ public class Friend : MonoBehaviour
     public float speed;
     public Vector3 homePosition;
 
-    public AudioClip hoemsound;
+    public AudioClip homesound;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -22,6 +22,7 @@ public class Friend : MonoBehaviour
     private float wanderPosition;
     private float offsetExit = 1f;
     private bool wander_stopped;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,7 @@ public class Friend : MonoBehaviour
         if (atHome)
         {
             gameManager.GetComponent<GameManager>().droppedHome();
-           
+            SoundManager.instance.RandomizeSfx(homesound);
             Destroy(gameObject);
 
         }

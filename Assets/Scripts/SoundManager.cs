@@ -25,7 +25,10 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
+    public void PlayMusic()
+    {
+        musicSource.Play();
+    }
     //Used to play single sound clips.
     public void PlaySingle(AudioClip clip)
     {

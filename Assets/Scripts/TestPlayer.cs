@@ -30,6 +30,7 @@ public class TestPlayer : MonoBehaviour
     public AudioClip jumpsound;
     public AudioClip failsound;
     public AudioClip dropsound;
+    public AudioClip pickupsound;
 
     private List<GameObject> friend_list = new List<GameObject>();
     private CircleCollider2D boxColl;
@@ -54,13 +55,7 @@ public class TestPlayer : MonoBehaviour
     {
 
         float move = Input.GetAxis("Horizontal");
-        if (Mathf.Abs(move) > 0 && canJump)
-        {
-            if (!audio.isPlaying)
-            {
-                audio.Play();
-            }
-        }
+
         // Jump
         if (Input.GetButton("Jump") && canJump)
         {
@@ -68,7 +63,18 @@ public class TestPlayer : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             canJump = false;
         }
+        if (Mathf.Abs(move) > 0 && canJump)
+        {
+            if (!audio.isPlaying)
+            {
 
+            float randomPitch = Random.Range(.9f, 1.1f);
+
+                //Set the pitch of the audio source to the randomly chosen pitch.
+                audio.pitch = randomPitch;
+                audio.Play();
+            }
+        }
         // Left and right
 
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
@@ -120,6 +126,7 @@ public class TestPlayer : MonoBehaviour
 
             if (friend.cold)
             {
+                SoundManager.instance.RandomizeSfx(pickupsound);
                 pointLight.range++;
                 pointLight.intensity++;
                 umbrella.Extend();

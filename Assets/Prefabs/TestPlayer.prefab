@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
     m_SelectOnUp: {fileID: 0}
@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 1, b: 0.8793843, a: 1}
   m_RaycastTarget: 1
@@ -295,8 +295,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.42001867, b: 0, a: 1}
   m_RaycastTarget: 1
@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -569,8 +569,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bad4f677d234bb647ae9bd2ac179c609, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   player: {fileID: 4003244742233526030}
   home: {fileID: 0}
   thisObject: {fileID: 0}
@@ -729,8 +729,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
@@ -751,8 +751,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -768,8 +768,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bad4f677d234bb647ae9bd2ac179c609, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   player: {fileID: 0}
   home: {fileID: 0}
   thisObject: {fileID: 0}
@@ -916,8 +916,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbfcc16ddd267074b91c6bce228a6500, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  people_saved: 0
+  friend_list_length: 0
   umbrella: {fileID: 9156504245238153529}
   pointLight: {fileID: 0}
   warmth: 100
@@ -937,6 +939,7 @@ MonoBehaviour:
   jumpsound: {fileID: 8300000, guid: 40b0359d82f3ef34aaa1ae49706ba879, type: 3}
   failsound: {fileID: 8300000, guid: 4bbf4a559943ed84dba16254a5c2c3a6, type: 3}
   dropsound: {fileID: 8300000, guid: 83b70751320b51b4f80621a4ad913ce1, type: 3}
+  pickupsound: {fileID: 8300000, guid: ffc3e1972f19dd84db3ccab017c3f43d, type: 3}
   canJump: 0
 --- !u!61 &4003244742233526023
 BoxCollider2D:
@@ -979,7 +982,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage:
+  m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -993,9 +996,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aaeaa6be70b9ca4285af6500aa1eb3a, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  StartingColdDmg: 1
   StartingPlayerWarmth: 100
+  maxPlayerWarmth: 0
   playerWarmth: 0
   coldDmg: 0
   warmthSlider: {fileID: 2565151015012951982}
@@ -1189,8 +1195,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2db5e76412302bd419529872cbc276ba, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   umbrella: {fileID: 9156504245238153529}
 --- !u!1 &4692028643417344404
 GameObject:
@@ -1431,8 +1437,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7f6ffd4be616c2a4a9965dbf2b1fb6c0, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   center: {fileID: 4692028643417344404}
   left: {fileID: 1829662515458628300}
   right: {fileID: 2701216498748389580}
@@ -1573,8 +1579,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -1596,7 +1602,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text:
+  m_Text: 
 --- !u!114 &993983054656002176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,9 +1613,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be37b406e038f8b4cba97871614bd54c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   StartingTimeLeft: 60
+  timeLeft: 0
   timer: {fileID: 4582741659924720969}
 --- !u!1001 &4738761747334225763
 PrefabInstance:
@@ -1666,6 +1673,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19904136, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
+      propertyPath: m_LengthScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 19889002, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.5
@@ -1709,10 +1720,6 @@ PrefabInstance:
     - target: {fileID: 19889002, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
       propertyPath: RotationBySpeedModule.curve.scalar
       value: 0.7853981
-      objectReference: {fileID: 0}
-    - target: {fileID: 19904136, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
-      propertyPath: m_LengthScale
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 950f8b7b75b0e45949ba0a337607535c, type: 3}
