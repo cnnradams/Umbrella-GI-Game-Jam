@@ -31,26 +31,21 @@ public class Chunk : MonoBehaviour
     {
         platforms = new List<Platform>();
         float height = transform.position.y;
-        //Debug.Log("Last height: " + lastHeight);
         if (index != 0 && index != -1)
         {
             height += lastHeight;
-            //Debug.Log("normal height: " + height);
             if (randomDir == 1)
             {
-                //Debug.Log("UP");
                 height += Random.Range(0, 4f);
             }
             else if (randomDir == -1)
             {
-                //Debug.Log("DOWN");
                 height += Random.Range(-4f, 0);
             }
             else
             {
                 height += Random.Range(-3f, 3f);
             }
-            //Debug.Log("adjusted height: " + height);
         }
         newHeight = height;
         instantiatedGround = Instantiate(groundPrefab, new Vector2(transform.position.x, height - 10), Quaternion.identity, transform);
@@ -115,7 +110,7 @@ public class Chunk : MonoBehaviour
     }
     void GenerateNewPlatforms()
     {
-        float curYHeight = instantiatedGround.transform.position.y + instantiatedGround.transform.localScale.y / 2.0f + 2;
+        float curYHeight = instantiatedGround.transform.position.y + instantiatedGround.transform.localScale.y / 2.0f + 1.5f;
         // keep making new platforms until luck runs out
         while (Random.Range(0.0f, 1.0f) < platformGenChance)
         {

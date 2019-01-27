@@ -70,19 +70,15 @@ public class ChunkManager : MonoBehaviour
         }
         Chunk last;
         float rand = Random.Range(0f, 1f);
-        //Debug.Log(rand);
-        //Debug.Log(rand < randomUpChance);
         if (rand < randomUpChance)
         {
             randomUp = Random.Range(-1, 2);
-            //Debug.Log("New: " + randomUp);
         }
         c.randomDir = randomUp;
         chunks.TryGetValue(index + (isLeft ? 1 : -1), out last);
         c.isLeft = isLeft;
         if (last == null)
         {
-            //Debug.Log("no last height");
             c.previousPlatforms = new List<Chunk.Platform>();
             c.lastHeight = 0;
         }

@@ -98,6 +98,15 @@ public class Umbrella : MonoBehaviour
 
                 e.extension.transform.position = new Vector2(xPos + eAmount,
                                                                 e.extension.transform.position.y);
+
+                if (xPos - transform.position.x < 0)
+                {
+                    e.extension.SetActive(false);
+                }
+                else
+                {
+                    e.extension.SetActive(true);
+                }
                 // if (e.growing)
                 // {
                 //     e.extension.transform.localScale = new Vector2(1,
@@ -127,6 +136,15 @@ public class Umbrella : MonoBehaviour
 
                 e.extension.transform.position = new Vector2(xPos + eAmount,
                                                                 e.extension.transform.position.y);
+
+                if (xPos - transform.position.x < 0)
+                {
+                    e.extension.SetActive(false);
+                }
+                else
+                {
+                    e.extension.SetActive(true);
+                }
             }
             extendRightAmount -= eAmount;
         }
@@ -166,6 +184,14 @@ public class Umbrella : MonoBehaviour
                 float xPos = e.extension.transform.position.x;
                 e.extension.transform.position = new Vector2(xPos + eAmount,
                                                                 e.extension.transform.position.y);
+                if (xPos - transform.position.x > 0)
+                {
+                    e.extension.SetActive(false);
+                }
+                else
+                {
+                    e.extension.SetActive(true);
+                }
             }
             extendLeftAmount -= eAmount;
         }
@@ -186,6 +212,15 @@ public class Umbrella : MonoBehaviour
 
                 e.extension.transform.position = new Vector2(xPos + eAmount,
                                                                 e.extension.transform.position.y);
+
+                if (xPos - transform.position.x > 0)
+                {
+                    e.extension.SetActive(false);
+                }
+                else
+                {
+                    e.extension.SetActive(true);
+                }
             }
             extendLeftAmount -= eAmount;
         }
