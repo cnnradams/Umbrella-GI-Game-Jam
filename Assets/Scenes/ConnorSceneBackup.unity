@@ -112,6 +112,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/ConnorSceneBackup.unity
 --- !u!1 &513866908
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +163,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of fb5e231... Added the spritesheet for the player vector model, made cold damage increase over time.:Assets/Scenes/MainScene.unity
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +332,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/ConnorSceneBackup.unity
 --- !u!1 &1311581964
+=======
+--- !u!1 &1390938774
+>>>>>>> parent of fb5e231... Added the spritesheet for the player vector model, made cold damage increase over time.:Assets/Scenes/MainScene.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -337,15 +344,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Scenes/ConnorSceneBackup.unity
   - component: {fileID: 1311581966}
   - component: {fileID: 1311581965}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
+=======
+  - component: {fileID: 1390938775}
+  - component: {fileID: 1390938776}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+>>>>>>> parent of fb5e231... Added the spritesheet for the player vector model, made cold damage increase over time.:Assets/Scenes/MainScene.unity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/Scenes/ConnorSceneBackup.unity
 --- !u!212 &1311581965
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -395,11 +411,15 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1311581966
+=======
+--- !u!4 &1390938775
+>>>>>>> parent of fb5e231... Added the spritesheet for the player vector model, made cold damage increase over time.:Assets/Scenes/MainScene.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/ConnorSceneBackup.unity
   m_GameObject: {fileID: 1311581964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 7.9, z: 100}
@@ -408,6 +428,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_GameObject: {fileID: 1390938774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.6505773, y: 5.1044226, z: 10.095379}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390938776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390938774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecda002db47c1e4bb3dfc7de24ab766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 60
+  people_saved: 0
+  warmth_max: 100
+  warmth_decrease: 10
+  warmth_gain: 10
+  gameOver: 0
+  player: {fileID: 0}
+>>>>>>> parent of fb5e231... Added the spritesheet for the player vector model, made cold damage increase over time.:Assets/Scenes/MainScene.unity
 --- !u!1 &1905479391
 GameObject:
   m_ObjectHideFlags: 0
